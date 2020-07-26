@@ -69,6 +69,7 @@ namespace VetProject
         private void Type_Load(object sender, EventArgs e)
         {
             ShowData();
+            SwitchLanguage.setLanguage();
         }
 
         string id = "";
@@ -121,6 +122,11 @@ namespace VetProject
             }
             dr.Close();
             dataGridView1.Columns[1].Visible = false;
+        }
+
+        private void txtName_Enter(object sender, EventArgs e)
+        {
+            InputLanguage.CurrentInputLanguage = SwitchLanguage.la;
         }
     }
 }

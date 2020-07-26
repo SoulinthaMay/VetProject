@@ -25,6 +25,13 @@ namespace VetProject
             _p = p;
         }
 
+        MedicalRecord _m;
+        public CreatePatient(MedicalRecord m)
+        {
+            InitializeComponent();
+            _m = m;
+        }
+
         MySqlConnection conn = DB.getConnect();
         MySqlCommand cmd;
         MySqlDataAdapter da;
@@ -73,9 +80,9 @@ namespace VetProject
 
         private void CreatePatient_Load(object sender, EventArgs e)
         {
-            cbxGender.Text = cbxGender.Items[0].ToString();
             ShowType();
             SwitchLanguage.setLanguage();
+            setID(petID);
         }
 
         private void ShowType()
@@ -94,10 +101,15 @@ namespace VetProject
         }
 
         string petID = "";
-        public void setID(string id)
+        public void setID(string patientID)
         {
-            petID = id;
-            sql = "select A.ID, A.name, B.type, A.gender,A.age, A.weight, A.owner,  A.tel from patient A inner join type B on A.typeID = B.typeID where ID = '" + id + "'";
+            if (patientID == "")
+            {
+                return;
+            }
+
+            petID = patientID;
+            sql = "select A.ID, A.name, B.type, A.gender,A.age, A.weight, A.owner,  A.tel from patient A inner join type B on A.typeID = B.typeID where ID = '" + petID + "'";
             cmd = new MySqlCommand(sql, conn);
             dr = cmd.ExecuteReader();
             if (dr.HasRows)
@@ -167,6 +179,16 @@ namespace VetProject
         private void txtWeight_Enter(object sender, EventArgs e)
         {
             InputLanguage.CurrentInputLanguage = SwitchLanguage.en;
+        }
+
+        private void txtAge_Enter(object sender, EventArgs e)
+        {
+            InputLanguage.CurrentInputLanguage = SwitchLanguage.en;
+        }
+
+        private void txtTel_KeyUp(object sender, KeyEventArgs e)
+        {
+            NumberOnly.setNumber(sender, e, txtTel);
         }
     }
 }

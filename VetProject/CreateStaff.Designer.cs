@@ -123,7 +123,7 @@
             this.cbStatus.Items.AddRange(new object[] {
             "User",
             "Admin"});
-            this.cbStatus.Location = new System.Drawing.Point(282, 486);
+            this.cbStatus.Location = new System.Drawing.Point(282, 479);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(276, 40);
             this.cbStatus.TabIndex = 29;
@@ -131,7 +131,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Mongolian Baiti", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(81, 483);
+            this.label7.Location = new System.Drawing.Point(81, 476);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(187, 43);
             this.label7.TabIndex = 28;
@@ -140,17 +140,18 @@
             // 
             // txtPass
             // 
-            this.txtPass.Font = new System.Drawing.Font("Noto Serif Lao", 12F);
+            this.txtPass.Font = new System.Drawing.Font("Mongolian Baiti", 12F);
             this.txtPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(127)))), ((int)(((byte)(119)))));
-            this.txtPass.Location = new System.Drawing.Point(282, 415);
+            this.txtPass.Location = new System.Drawing.Point(282, 408);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(276, 40);
+            this.txtPass.Size = new System.Drawing.Size(276, 35);
             this.txtPass.TabIndex = 27;
+            this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Mongolian Baiti", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(81, 412);
+            this.label5.Location = new System.Drawing.Point(81, 405);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(187, 43);
             this.label5.TabIndex = 26;
@@ -159,17 +160,18 @@
             // 
             // txtUser
             // 
-            this.txtUser.Font = new System.Drawing.Font("Noto Serif Lao", 12F);
+            this.txtUser.Font = new System.Drawing.Font("Mongolian Baiti", 12F);
             this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(127)))), ((int)(((byte)(119)))));
-            this.txtUser.Location = new System.Drawing.Point(282, 345);
+            this.txtUser.Location = new System.Drawing.Point(282, 337);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(276, 40);
+            this.txtUser.Size = new System.Drawing.Size(276, 35);
             this.txtUser.TabIndex = 25;
+            this.txtUser.Enter += new System.EventHandler(this.txtUser_Enter);
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Mongolian Baiti", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(81, 342);
+            this.label6.Location = new System.Drawing.Point(81, 334);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(172, 43);
             this.label6.TabIndex = 24;
@@ -201,7 +203,7 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = global::VetProject.Properties.Resources.delete;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(340, 574);
+            this.button2.Location = new System.Drawing.Point(342, 562);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
             this.button2.Size = new System.Drawing.Size(173, 57);
@@ -220,7 +222,7 @@
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = global::VetProject.Properties.Resources.save;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(151, 574);
+            this.button3.Location = new System.Drawing.Point(153, 562);
             this.button3.Name = "button3";
             this.button3.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.button3.Size = new System.Drawing.Size(173, 57);
@@ -231,17 +233,18 @@
             // 
             // txtTel
             // 
-            this.txtTel.Font = new System.Drawing.Font("Noto Serif Lao", 12F);
+            this.txtTel.Font = new System.Drawing.Font("Mongolian Baiti", 12F);
             this.txtTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(127)))), ((int)(((byte)(119)))));
-            this.txtTel.Location = new System.Drawing.Point(282, 270);
+            this.txtTel.Location = new System.Drawing.Point(282, 264);
             this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(276, 40);
+            this.txtTel.Size = new System.Drawing.Size(276, 35);
             this.txtTel.TabIndex = 13;
+            this.txtTel.Enter += new System.EventHandler(this.txtTel_Enter);
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Noto Serif Lao", 12F);
-            this.label4.Location = new System.Drawing.Point(81, 267);
+            this.label4.Location = new System.Drawing.Point(81, 261);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(195, 43);
             this.label4.TabIndex = 12;
@@ -285,6 +288,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(276, 40);
             this.txtName.TabIndex = 7;
+            this.txtName.Enter += new System.EventHandler(this.txtName_Enter);
             // 
             // label1
             // 

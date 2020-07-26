@@ -68,7 +68,7 @@ namespace VetProject
             else if (button8.Name == "show")
             {
                 button8.Name = "button8";
-                radioButton3.Visible = true;
+                radioButton3.Visible = false;
                 radioButton2.Visible = false;
             }
         }

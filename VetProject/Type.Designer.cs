@@ -232,6 +232,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(297, 40);
             this.txtName.TabIndex = 21;
+            this.txtName.Enter += new System.EventHandler(this.txtName_Enter);
             // 
             // label2
             // 

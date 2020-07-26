@@ -65,18 +65,20 @@ namespace VetProject
                 {
                     MessageBox.Show("Save data successfully");
                     _s.ShowData();
+                    this.Close();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                MessageBox.Show("ຮູບມີຂະໜາດໃຫຍ່ເກີນໄປ");
+                //MessageBox.Show("ຮູບມີຂະໜາດໃຫຍ່ເກີນໄປ");
+                MessageBox.Show(e.Message.ToString());
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (txtName.Text == "" || txtSurname.Text == "" || txtTel.Text == "" || pictureBox1.Image == null)
+            if (txtName.Text == "" || txtSurname.Text == "" || txtTel.Text == "")
             {
                 MessageBox.Show("Please fill all fields");
                 return;
@@ -84,9 +86,9 @@ namespace VetProject
 
             if (button3.Text == "   Save")
             {
-                sql = "insert into staff (name, surname,username, password, job, tel, pic, status) value (@name, @surname, @user, @pass @job, @tel, @pic, @status)";
+                sql = "insert into staff (name, surname,username, password, job, tel, pic, status) values (@name, @surname, @user, @pass ,@job, @tel, @pic, @status)";
                 insertupdate();
-                this.Close();
+                
             }
             else if (button3.Text == "   Update")
             {
@@ -125,6 +127,8 @@ namespace VetProject
         {
             comboBox1.Text = comboBox1.Items[0].ToString();
             cbStatus.Text = cbStatus.Items[0].ToString();
+
+            SwitchLanguage.setLanguage();
         }
 
         string a = "";
@@ -154,6 +158,26 @@ namespace VetProject
                 button3.Text = "   Update";
             }
             dr.Close();
+        }
+
+        private void txtUser_Enter(object sender, EventArgs e)
+        {
+            InputLanguage.CurrentInputLanguage = SwitchLanguage.en;
+        }
+
+        private void txtName_Enter(object sender, EventArgs e)
+        {
+            InputLanguage.CurrentInputLanguage = SwitchLanguage.la;
+        }
+
+        private void txtTel_Enter(object sender, EventArgs e)
+        {
+            InputLanguage.CurrentInputLanguage = SwitchLanguage.en;
+        }
+
+        private void txtPass_Enter(object sender, EventArgs e)
+        {
+            InputLanguage.CurrentInputLanguage = SwitchLanguage.en;
         }
     }
 }

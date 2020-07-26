@@ -49,8 +49,7 @@ namespace VetProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Patient register = new Patient();
-            ShowForm(register);
+            
         }
         
         public void ShowForm(Form a)
@@ -65,6 +64,23 @@ namespace VetProject
         private void button2_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Patient register = new Patient();
+            ShowForm(register);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Payment p = new Payment();
+            ShowForm(p);
         }
     }
 }

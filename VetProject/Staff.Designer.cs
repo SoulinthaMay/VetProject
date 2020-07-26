@@ -37,7 +37,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -114,6 +114,7 @@
             // 
             // Column1
             // 
+            this.Column1.FillWeight = 130F;
             this.Column1.HeaderText = "ຊື່ ແລະ ນາມສະກຸນ";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -135,11 +136,13 @@
             // Column4
             // 
             this.Column4.FillWeight = 50F;
+            this.Column4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column4.HeaderText = "ສະແດງ";
-            this.Column4.Image = global::VetProject.Properties.Resources.tick;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.Text = "Open";
+            this.Column4.UseColumnTextForButtonValue = true;
             // 
             // panel2
             // 
@@ -178,6 +181,7 @@
             this.textBox1.Size = new System.Drawing.Size(317, 40);
             this.textBox1.TabIndex = 2;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
             // 
             // button1
             // 
@@ -243,6 +247,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewImageColumn Column4;
+        private System.Windows.Forms.DataGridViewButtonColumn Column4;
     }
 }

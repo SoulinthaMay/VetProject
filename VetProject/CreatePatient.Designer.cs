@@ -168,6 +168,7 @@
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(302, 35);
             this.txtTel.TabIndex = 16;
+            this.txtTel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel_KeyUp);
             // 
             // label8
             // 
@@ -201,6 +202,7 @@
             this.cbxGender.Name = "cbxGender";
             this.cbxGender.Size = new System.Drawing.Size(301, 40);
             this.cbxGender.TabIndex = 18;
+            this.cbxGender.Text = "ເພດຜູ້";
             // 
             // txtAge
             // 
@@ -211,6 +213,7 @@
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(300, 35);
             this.txtAge.TabIndex = 19;
+            this.txtAge.Enter += new System.EventHandler(this.txtAge_Enter);
             // 
             // button2
             // 

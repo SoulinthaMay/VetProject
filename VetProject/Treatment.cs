@@ -29,19 +29,20 @@ namespace VetProject
         {
             ShowData();
             ShowType();
+            SwitchLanguage.setLanguage();
         }
 
         private void ShowData()
         {
             dataGridView1.Rows.Clear();
             int i = 0;
-            sql = "select A.ID, A.name, B.name as type from treatment A inner join treatmenttype B on A.typeID = B.ID order by typeID asc";
+            sql = "select A.ID, A.name, B.name as type, A.priceRange from treatment A inner join treatmenttype B on A.typeID = B.ID order by typeID asc";
             cmd = new MySqlCommand(sql, conn);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dataGridView1.Rows.Add(i, dr["ID"].ToString(), dr["type"].ToString(), dr["name"].ToString());
+                dataGridView1.Rows.Add(i, dr["ID"].ToString(), dr["type"].ToString(), dr["name"].ToString(), dr["priceRange"].ToString());
             }
             dr.Close();
             dataGridView1.Columns[1].Visible = false;
@@ -62,12 +63,12 @@ namespace VetProject
         {
             if (button1.Text == "   Save")
             {
-                sql = "insert into treatment(name, typeID) values ('" + txtNote.Text + "', '" + comboBox1.SelectedValue.ToString() + "')";
+                sql = "insert into treatment(name, typeID, priceRange) values ('" + txtNote.Text + "', '" + comboBox1.SelectedValue.ToString() + "', '"+txtPrice.Text+"')";
                 insertupdate();
             }
             else if (button1.Text == "   Update")
             {
-                sql = "update treatment set name = '" + txtNote.Text + "', typeID = '" + comboBox1.SelectedValue.ToString() + "' where ID = '" + id + "'";
+                sql = "update treatment set name = '" + txtNote.Text + "', typeID = '" + comboBox1.SelectedValue.ToString() + "', priceRange = '"+txtPrice.Text+"' where ID = '" + id + "'";
                 insertupdate();
             }
         }
@@ -77,7 +78,7 @@ namespace VetProject
             id = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             txtNote.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             comboBox1.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-
+            txtPrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             button1.Text = "   Update";
 
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Column3")
@@ -109,13 +110,13 @@ namespace VetProject
         {
             dataGridView1.Rows.Clear();
             int i = 0;
-            sql = "select A.ID, A.name, B.name as type from treatment A inner join treatmenttype B on A.typeID = B.ID where B.name like '%"+textBox1.Text+ "%' or A.name like '%" + textBox1.Text + "%' order by typeID asc";
+            sql = "select A.ID, A.name, B.name as type, A.priceRange from treatment A inner join treatmenttype B on A.typeID = B.ID where B.name like '%"+textBox1.Text+ "%' or A.name like '%" + textBox1.Text + "%' order by typeID asc";
             cmd = new MySqlCommand(sql, conn);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dataGridView1.Rows.Add(i, dr["ID"].ToString(), dr["type"].ToString(), dr["name"].ToString());
+                dataGridView1.Rows.Add(i, dr["ID"].ToString(), dr["type"].ToString(), dr["name"].ToString(), dr["priceRange"]);
             }
             dr.Close();
             dataGridView1.Columns[1].Visible = false;
@@ -187,6 +188,11 @@ namespace VetProject
         {
             button4.Text = "   Save";
             textBox2.Text = "";
+        }
+
+        private void txtPrice_Enter(object sender, EventArgs e)
+        {
+            InputLanguage.CurrentInputLanguage = SwitchLanguage.en;
         }
     }
 }

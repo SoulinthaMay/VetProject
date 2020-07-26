@@ -29,13 +29,13 @@ namespace VetProject
         {
             dataGridView1.Rows.Clear();
             int i = 0;
-            sql = "select * from medicine";
+            sql = "select A.ID, A.name, B.unit, A.price from medicine A inner join unit B on A.unitID = B.unitID order by A.name ASC";
             cmd = new MySqlCommand(sql, conn);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dataGridView1.Rows.Add(i, dr["ID"].ToString(), dr["name"].ToString());
+                dataGridView1.Rows.Add(i, dr["ID"].ToString(), dr["name"].ToString(), dr["unit"].ToString(), dr["price"].ToString());
             }
             dr.Close();
             dataGridView1.Columns[1].Visible = false;
@@ -45,9 +45,11 @@ namespace VetProject
         {
             if (button1.Text == "   Save")
             {
-                sql = "insert into medicine(name) values (@name)";
+                sql = "insert into medicine(name, unitID, price) values (@name, @unitID, @price)";
                 cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("name", textBox1.Text);
+                cmd.Parameters.AddWithValue("unitID", comboBox1.SelectedValue.ToString());
+                cmd.Parameters.AddWithValue("price", txtPrice.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("Save data successfully");
@@ -56,9 +58,11 @@ namespace VetProject
             }
             else if (button1.Text == "   Update")
             {
-                sql = "update medicine set name=@name where ID = '"+id+"'";
+                sql = "update medicine set name=@name, unitID = @unitID, price = @price where ID = '"+id+"'";
                 cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("name", textBox1.Text);
+                cmd.Parameters.AddWithValue("unitID", comboBox1.SelectedValue.ToString());
+                cmd.Parameters.AddWithValue("price", txtPrice.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("Save data successfully");
@@ -75,6 +79,16 @@ namespace VetProject
             int i = 0;
             sql = "select * from unit";
             cmd = new MySqlCommand(sql, conn);
+            da = new MySqlDataAdapter(sql, conn);
+            da.Fill(ds, "unit");
+            if (ds.Tables["unit"] != null)
+            {
+                ds.Tables["unit"].Clear();
+            }
+            da.Fill(ds, "unit");
+            comboBox1.DataSource = ds.Tables["unit"];
+            comboBox1.DisplayMember = "unit";
+            comboBox1.ValueMember = "unitID";
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -83,6 +97,7 @@ namespace VetProject
             }
             dr.Close();
             dataGridView2.Columns[1].Visible = false;
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -159,8 +174,11 @@ namespace VetProject
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             id = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            textBox1.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+           comboBox1.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+           textBox1.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+           txtPrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             button1.Text = "   Update";
+
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Columns5")
             {
                 DialogResult dr = MessageBox.Show("ທ່ານຕ້ອງການລຶບຂໍ້ມູນນີ້ບໍ່?", "Message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);

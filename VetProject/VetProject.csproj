@@ -98,13 +98,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addTreatment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addTreatment.Designer.cs">
+      <DependentUpon>addTreatment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="BillReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BillReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BillTreatment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillTreatment.Designer.cs">
+      <DependentUpon>BillTreatment.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB.cs" />
+    <Compile Include="dsPatient.cs">
+      <DependentUpon>dsPatient.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsPatient.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPatient.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsPrescription.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -115,7 +141,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReport.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="GetID.cs" />
+    <Compile Include="GetPatientID.cs" />
+    <Compile Include="NumberOnly.cs" />
+    <Compile Include="PatientReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +191,14 @@
     </Compile>
     <Compile Include="Medicine.Designer.cs">
       <DependentUpon>Medicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentBill.cs">
+      <DependentUpon>PaymentBill.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentBill.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymentBill.xsd</DependentUpon>
     </Compile>
     <Compile Include="PrescriptionRp.cs">
       <AutoGen>True</AutoGen>
@@ -215,8 +269,28 @@
     <Compile Include="Type.Designer.cs">
       <DependentUpon>Type.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addTreatment.resx">
+      <DependentUpon>addTreatment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BillReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillTreatment.resx">
+      <DependentUpon>BillTreatment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PatientReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -279,6 +353,17 @@
       <DependentUpon>Type.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".manifest" />
+    <None Include="dsPatient.xsc">
+      <DependentUpon>dsPatient.xsd</DependentUpon>
+    </None>
+    <None Include="dsPatient.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPatient.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsPatient.xss">
+      <DependentUpon>dsPatient.xsd</DependentUpon>
+    </None>
     <None Include="dsPrescription.xsc">
       <DependentUpon>dsPrescription.xsd</DependentUpon>
     </None>
@@ -302,6 +387,17 @@
       <DependentUpon>dsReport.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="PaymentBill.xsc">
+      <DependentUpon>PaymentBill.xsd</DependentUpon>
+    </None>
+    <None Include="PaymentBill.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PaymentBill.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PaymentBill.xss">
+      <DependentUpon>PaymentBill.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -350,6 +446,10 @@
     <None Include="Resources\cancel.png" />
     <None Include="Resources\cancel %281%29.png" />
     <None Include="Resources\plus %281%29.png" />
+    <None Include="Resources\house-with-chimney.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\cash-register.png" />
+    <None Include="Resources\cash-register %281%29.png" />
     <Content Include="XMLFile1.xml" />
   </ItemGroup>
   <ItemGroup>

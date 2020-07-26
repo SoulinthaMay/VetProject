@@ -30,7 +30,7 @@ namespace VetProject
                 MessageBox.Show("ກະລຸນາເລືອກວັນທີອີກຄັ້ງ");
                 return;
             }
-            sql = "select A.ID, B.name, C.type, D.name as vet, E.name as treatment, DATE_FORMAT(A.date, '%d-%m-%Y') as date from record A inner join patient B on A.patientID = B.ID inner join type C on B.typeID = C.typeID inner join staff D on A.vetID = D.ID inner join treatment E on A.treatmentID = E.ID where A.date >= '" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "' and A.date <= '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'";
+            sql = "select A.recordID, B.name, C.type, D.name as vet, E.name as treatment, DATE_FORMAT(A.date, '%d-%m-%Y') as date from record A inner join patient B on A.patientID = B.ID inner join type C on B.typeID = C.typeID inner join staff D on A.vetID = D.ID inner join treatment E on A.treatmentID = E.ID where A.date >= '" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "' and A.date <= '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'";
             da = new MySqlDataAdapter(sql, conn);
             da.Fill(ds, "1");
             if (ds.Tables["1"] != null)

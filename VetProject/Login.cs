@@ -93,5 +93,10 @@ namespace VetProject
         {
             InputLanguage.CurrentInputLanguage = SwitchLanguage.en;
         }
+
+        private void textBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+        }
     }
 }

@@ -74,7 +74,6 @@ C:\Users\Soulintha\Desktop\VetProject\VetProject\bin\Debug\MySql.Data.xml
 C:\Users\Soulintha\Desktop\VetProject\VetProject\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.csprojAssemblyReference.cache
 C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.Admin.resources
-C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.Home.resources
 C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.Login.resources
 C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.MedicalRecord.resources
 C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.CreatePatient.resources
@@ -115,3 +114,8 @@ C:\Users\Soulintha\Desktop\VetProject\VetProject\bin\Debug\stdole.dll
 C:\Users\Soulintha\Desktop\VetProject\VetProject\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.RecordReport.resources
 C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.PrescriptionReport.resources
+C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.addTreatment.resources
+C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.Payment.resources
+C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.Home.resources
+C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.BillTreatment.resources
+C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.Form1.resources

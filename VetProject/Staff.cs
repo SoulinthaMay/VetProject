@@ -50,15 +50,24 @@ namespace VetProject
             }
             dr.Close();
             dataGridView1.Columns[1].Visible = false;
+
+            for (int j = 0; j <= dataGridView1.RowCount - 1; j++)
+            {
+                DataGridViewButtonCell buttonCell = (DataGridViewButtonCell)dataGridView1.Rows[j].Cells[5];
+                buttonCell.FlatStyle = FlatStyle.Flat;
+                buttonCell.Style.BackColor = System.Drawing.Color.FromArgb(0, 192, 239);
+                buttonCell.Style.Font = new Font("Mongolian Baiti", 12);
+                buttonCell.Style.ForeColor = Color.White;
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
 
+        
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
             int i = 0;
             sql = "select * from staff where name like '%" + textBox1.Text + "%' or surname like '%" + textBox1.Text + "%' or job like '%" + textBox1.Text + "%'";
             cmd = new MySqlCommand(sql, conn);
@@ -80,6 +89,10 @@ namespace VetProject
                 st.OpenData(dataGridView1.CurrentRow.Cells[1].Value.ToString());
                 st.ShowDialog();
             }
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
         }
     }
 }
