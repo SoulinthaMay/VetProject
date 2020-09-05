@@ -40,7 +40,7 @@ namespace VetProject
         {
             dataGridView1.Rows.Clear();
             int i = 0;
-            sql = "select * from staff";
+            sql = "select A.ID, A.name, A.surname, B.jobName as job, A.tel from staff A inner join job B on A.job = B.jobID";
             cmd = new MySqlCommand(sql, conn);
             dr = cmd.ExecuteReader();
             while (dr.Read())

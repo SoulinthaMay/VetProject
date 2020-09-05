@@ -32,6 +32,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTel = new System.Windows.Forms.MaskedTextBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
@@ -41,7 +42,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.txtTel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
@@ -93,6 +93,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtTel);
             this.panel2.Controls.Add(this.cbStatus);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txtPass);
@@ -102,7 +103,6 @@
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.txtTel);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.txtSurname);
@@ -114,6 +114,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(669, 674);
             this.panel2.TabIndex = 1;
+            // 
+            // txtTel
+            // 
+            this.txtTel.Font = new System.Drawing.Font("Mongolian Baiti", 12F);
+            this.txtTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(127)))), ((int)(((byte)(119)))));
+            this.txtTel.Location = new System.Drawing.Point(282, 268);
+            this.txtTel.Mask = "+856 0000000000";
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(276, 35);
+            this.txtTel.TabIndex = 30;
             // 
             // cbStatus
             // 
@@ -146,6 +156,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(276, 35);
             this.txtPass.TabIndex = 27;
+            this.txtPass.UseSystemPasswordChar = true;
             this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
             // 
             // label5
@@ -183,10 +194,6 @@
             this.comboBox1.Font = new System.Drawing.Font("Noto Serif Lao", 12F);
             this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(127)))), ((int)(((byte)(119)))));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "ແພດ",
-            "ຜູ້ຊ່ວຍແພດ",
-            "ຜູ້ຈັດການ"});
             this.comboBox1.Location = new System.Drawing.Point(282, 189);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(276, 40);
@@ -230,16 +237,6 @@
             this.button3.Text = "   Save";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // txtTel
-            // 
-            this.txtTel.Font = new System.Drawing.Font("Mongolian Baiti", 12F);
-            this.txtTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(127)))), ((int)(((byte)(119)))));
-            this.txtTel.Location = new System.Drawing.Point(282, 264);
-            this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(276, 35);
-            this.txtTel.TabIndex = 13;
-            this.txtTel.Enter += new System.EventHandler(this.txtTel_Enter);
             // 
             // label4
             // 
@@ -327,7 +324,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtTel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSurname;
@@ -343,5 +339,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.MaskedTextBox txtTel;
     }
 }

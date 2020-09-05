@@ -119,3 +119,5 @@ C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.Payment.re
 C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.Home.resources
 C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.BillTreatment.resources
 C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.Form1.resources
+C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.ReportPatient.resources
+C:\Users\Soulintha\Desktop\VetProject\VetProject\obj\Debug\VetProject.Job.resources

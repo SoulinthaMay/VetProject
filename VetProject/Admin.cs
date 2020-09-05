@@ -63,7 +63,7 @@ namespace VetProject
                 button8.Name = "show";
                 radioButton3.Visible = true;
                 radioButton2.Visible = true;
-               
+                radioButton1.Visible = true;
             }
             else if (button8.Name == "show")
             {
@@ -88,6 +88,21 @@ namespace VetProject
                 PrescriptionReport r = new PrescriptionReport();
                 ShowForm(r);
             }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                ReportPatient r = new ReportPatient();
+                ShowForm(r);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Job j = new Job();
+            ShowForm(j);
         }
     }
 }

@@ -39,6 +39,7 @@ namespace VetProject
 
         MySqlConnection conn = DB.getConnect();
         MySqlCommand cmd;
+        MySqlDataAdapter da;
         MySqlDataReader dr;
         DataSet ds = new DataSet();
         string sql = "";
@@ -52,7 +53,7 @@ namespace VetProject
                 cmd.Parameters.AddWithValue("surname", txtSurname.Text);
                 cmd.Parameters.AddWithValue("user", txtUser.Text);
                 cmd.Parameters.AddWithValue("pass", txtPass.Text);
-                cmd.Parameters.AddWithValue("job", comboBox1.Text);
+                cmd.Parameters.AddWithValue("job", comboBox1.SelectedValue);
                 cmd.Parameters.AddWithValue("tel", txtTel.Text);
                 cmd.Parameters.AddWithValue("status", cbStatus.Text);
 
@@ -78,9 +79,15 @@ namespace VetProject
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (txtName.Text == "" || txtSurname.Text == "" || txtTel.Text == "")
+            if (txtName.Text == "" || txtSurname.Text == "" || txtTel.Text == "" || txtTel.Text.Length < 15)
             {
                 MessageBox.Show("Please fill all fields");
+                return;
+            }
+
+            if (txtPass.Text.Length < 5)
+            {
+                MessageBox.Show("ລະຫັດຜ່ານຕ້ອງມີຫຼາຍກວ່າ ຫຼື ເທົ່າກັບ 5 ໂຕ");
                 return;
             }
 
@@ -123,19 +130,37 @@ namespace VetProject
             }
         }
 
+        private void showJob()
+        {
+            sql = "select * from job";
+            da = new MySqlDataAdapter(sql,conn);
+            da.Fill(ds, "job");
+            if (ds.Tables["job"] != null)
+            {
+                ds.Tables["job"].Clear();
+            }
+            da.Fill(ds, "job");
+            comboBox1.DataSource = ds.Tables["job"];
+            comboBox1.DisplayMember = "jobName";
+            comboBox1.ValueMember = "jobID";
+        }
+
         private void CreateStaff_Load(object sender, EventArgs e)
         {
-            comboBox1.Text = comboBox1.Items[0].ToString();
             cbStatus.Text = cbStatus.Items[0].ToString();
-
+            showJob();
             SwitchLanguage.setLanguage();
+            if (a != "")
+            {
+                OpenData(a);
+            }
         }
 
         string a = "";
         public void OpenData(string id)
         {
             a = id;
-            sql = "select * from staff where ID = '"+id+"'";
+            sql = "select A.ID, A.name, A.surname, A.username, A.password, B.jobName as job, A.tel, A.status, A.pic from staff A inner join job B on A.job = B.jobID where ID = '"+id+"'";
             cmd = new MySqlCommand(sql, conn);
             //ໃຊ້ DataReader ຍ້ອນເລືອກຂໍ້ມູນພຽງໂຕດຽວ
             dr = cmd.ExecuteReader();

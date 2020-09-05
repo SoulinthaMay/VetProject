@@ -88,7 +88,7 @@ namespace VetProject
 
         private void fetchVet()
         {
-            sql = "select ID, concat(name, ' ', surname) as fullname from staff where job = 'ແພດ'";
+            sql = "select A.ID, concat(A.name, ' ', A.surname) as fullname from staff A inner join job B on A.job = B.jobID where B.jobName = 'ແພດ'";
             cmd = new MySqlCommand(sql, conn);
             da = new MySqlDataAdapter(cmd);
             da.Fill(ds, "vet");

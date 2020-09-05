@@ -23,15 +23,16 @@ namespace VetProject
         MySqlDataAdapter da;
         DataSet ds = new DataSet();
         string sql = "";
-
-        private void button3_Click(object sender, EventArgs e)
+        
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (dateTimePicker1.Value.Date > dateTimePicker2.Value.Date)
+            if (dateFrom.Value.Date > dateTo.Value.Date)
             {
                 MessageBox.Show("ກະລຸນາເລືອກວັນທີອີກຄັ້ງ");
                 return;
             }
-            sql = "select A.ID, B.name, D.name as medicine, E.unit, C.quantity, DATE_FORMAT(A.date, '%d-%m-%Y') as date from prescription A inner join patient B on A.patientID = B.ID inner join prescriptdetail C on A.ID = C.preID inner join medicine D on C.medID = D.ID inner join unit E on D.unitID = E.unitID where A.date >= '"+dateTimePicker1.Value.ToString("yyyy-MM-dd")+"' and A.date <= '"+dateTimePicker2.Value.ToString("yyyy-MM-dd")+"'";
+
+            sql = "select concat(C.name,' (', D.unit, ')') as name, (select SUM(A.quantity) from prescriptdetail A inner join medicine B on A.medID = B.ID inner join prescription F on A.preID = F.ID where B.ID = C.ID and F.date >= '" + dateFrom.Value.ToString("yyyy-MM-dd") + "' and F.date <= '" + dateTo.Value.ToString("yyyy-MM-dd") + "') as price from medicine C inner join unit D on C.unitID = D.unitID order by price limit 10";
             da = new MySqlDataAdapter(sql, conn);
             da.Fill(ds, "pre");
             if (ds.Tables["pre"] != null)
@@ -43,8 +44,8 @@ namespace VetProject
             ReportDocument rpt = new ReportDocument();
             rpt.Load("C:/Users/Soulintha/Desktop/VetProject/VetProject/PrescriptionRp.rpt");
             rpt.SetDataSource(ds.Tables["pre"]);
-            rpt.SetParameterValue("date1", dateTimePicker1.Value.ToString("dd-MM-yyyy"));
-            rpt.SetParameterValue("date2", dateTimePicker2.Value.ToString("dd-MM-yyyy"));
+            rpt.SetParameterValue("date1", dateFrom.Value.ToString("dd-MM-yyyy"));
+            rpt.SetParameterValue("date2", dateTo.Value.ToString("dd-MM-yyyy"));
             this.crystalReportViewer1.ReportSource = rpt;
             this.crystalReportViewer1.Refresh();
         }

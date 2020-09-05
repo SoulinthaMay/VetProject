@@ -59,7 +59,7 @@ namespace VetProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtAge.Text == "   y    m    d" || txtName.Text == "" || txtWeight.Text == "" || txtOwner.Text == "" || txtTel.Text == "")
+            if (txtAge.Text == "   y    m    d" || txtName.Text == "" || txtWeight.Text == "" || txtOwner.Text == "" || txtTel.Text == "" || txtTel.Text.Length < 15)
             {
                 MessageBox.Show("Please fill all fields");
                 return;
@@ -189,6 +189,11 @@ namespace VetProject
         private void txtTel_KeyUp(object sender, KeyEventArgs e)
         {
             NumberOnly.setNumber(sender, e, txtTel);
+        }
+
+        private void txtTel_Enter(object sender, EventArgs e)
+        {
+            InputLanguage.CurrentInputLanguage = SwitchLanguage.en;
         }
     }
 }

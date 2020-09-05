@@ -92,6 +92,11 @@ namespace VetProject
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (txtPrice.Text == "")
+            {
+                MessageBox.Show("ກະລຸນາປ້ອນລາຄາ");
+                return;
+            }
             _r.fetchData(comboBox1.SelectedValue.ToString(), comboBox3.Text, comboBox1.Text, txtPrice.Text);
         }
 

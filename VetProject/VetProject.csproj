@@ -122,6 +122,12 @@
     <Compile Include="BillTreatment.Designer.cs">
       <DependentUpon>BillTreatment.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="dsPatient.cs">
       <DependentUpon>dsPatient.xsd</DependentUpon>
@@ -149,13 +155,13 @@
     </Compile>
     <Compile Include="GetID.cs" />
     <Compile Include="GetPatientID.cs" />
-    <Compile Include="NumberOnly.cs" />
-    <Compile Include="PatientReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PatientReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="Job.cs">
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Job.Designer.cs">
+      <DependentUpon>Job.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumberOnly.cs" />
     <Compile Include="Payment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +250,12 @@
     <Compile Include="RecordReport.Designer.cs">
       <DependentUpon>RecordReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportPatient.Designer.cs">
+      <DependentUpon>ReportPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportRp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -282,12 +294,15 @@
     <EmbeddedResource Include="BillTreatment.resx">
       <DependentUpon>BillTreatment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PatientReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>PatientReport.cs</LastGenOutput>
+    <EmbeddedResource Include="Job.resx">
+      <DependentUpon>Job.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
@@ -338,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecordReport.resx">
       <DependentUpon>RecordReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPatient.resx">
+      <DependentUpon>ReportPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportRp.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

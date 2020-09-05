@@ -65,7 +65,7 @@ namespace VetProject
 
         private void fetchVet()
         {
-            sql = "select ID, concat(name, ' ', surname) as fullname from staff where job = 'ແພດ'";
+            sql = "select A.ID, concat(A.name, ' ', A.surname) as fullname from staff A inner join job B on A.job = B.jobID where B.jobName = 'ແພດ'";
             cmd = new MySqlCommand(sql, conn);
             da = new MySqlDataAdapter(cmd);
             da.Fill(ds, "vet");
@@ -416,6 +416,18 @@ namespace VetProject
         {
             textBox1.Text = "";
             dataGridView1.Rows.Clear();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Column6")
+            {
+                DialogResult dr = MessageBox.Show("ທ່ານຕ້ອງການລຶບຂໍ້ມູນນີ້ບໍ່?", "Message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+                }
+            }
         }
     }
 }

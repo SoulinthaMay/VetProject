@@ -35,17 +35,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtWeight = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtOwner = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtTel = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbxSpecies = new System.Windows.Forms.ComboBox();
             this.cbxGender = new System.Windows.Forms.ComboBox();
             this.txtAge = new System.Windows.Forms.MaskedTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtTel = new System.Windows.Forms.MaskedTextBox();
+            this.txtWeight = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +77,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(214, 43);
             this.label1.TabIndex = 1;
-            this.label1.Text = "ຊື່ຜູ້ປ່ວຍ";
+            this.label1.Text = "ຊື່ສັດລ້ຽງ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
@@ -119,18 +119,6 @@
             this.txtName.Size = new System.Drawing.Size(302, 40);
             this.txtName.TabIndex = 5;
             // 
-            // txtWeight
-            // 
-            this.txtWeight.Font = new System.Drawing.Font("Noto Serif Lao", 12F);
-            this.txtWeight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(127)))), ((int)(((byte)(119)))));
-            this.txtWeight.Location = new System.Drawing.Point(837, 137);
-            this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(302, 40);
-            this.txtWeight.TabIndex = 12;
-            this.txtWeight.TextChanged += new System.EventHandler(this.txtWeight_TextChanged);
-            this.txtWeight.Enter += new System.EventHandler(this.txtWeight_Enter);
-            this.txtWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWeight_KeyPress);
-            // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Noto Serif Lao", 12F);
@@ -159,16 +147,6 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "ຊື່ເຈົ້າຂອງ";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtTel
-            // 
-            this.txtTel.Font = new System.Drawing.Font("Mongolian Baiti", 12F);
-            this.txtTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(127)))), ((int)(((byte)(119)))));
-            this.txtTel.Location = new System.Drawing.Point(837, 322);
-            this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(302, 35);
-            this.txtTel.TabIndex = 16;
-            this.txtTel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel_KeyUp);
             // 
             // label8
             // 
@@ -254,21 +232,42 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtTel
+            // 
+            this.txtTel.Font = new System.Drawing.Font("Mongolian Baiti", 12F);
+            this.txtTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(127)))), ((int)(((byte)(119)))));
+            this.txtTel.Location = new System.Drawing.Point(837, 326);
+            this.txtTel.Mask = "+856 0000000000";
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(237, 35);
+            this.txtTel.TabIndex = 21;
+            this.txtTel.Enter += new System.EventHandler(this.txtTel_Enter);
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.Font = new System.Drawing.Font("Mongolian Baiti", 12F);
+            this.txtWeight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(127)))), ((int)(((byte)(119)))));
+            this.txtWeight.Location = new System.Drawing.Point(837, 142);
+            this.txtWeight.Mask = "00.0 kg";
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Size = new System.Drawing.Size(168, 35);
+            this.txtWeight.TabIndex = 22;
+            // 
             // CreatePatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1172, 593);
+            this.Controls.Add(this.txtWeight);
+            this.Controls.Add(this.txtTel);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtAge);
             this.Controls.Add(this.cbxGender);
             this.Controls.Add(this.cbxSpecies);
-            this.Controls.Add(this.txtTel);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtOwner);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtWeight);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
@@ -297,15 +296,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtWeight;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtOwner;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtTel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbxSpecies;
         private System.Windows.Forms.ComboBox cbxGender;
         private System.Windows.Forms.MaskedTextBox txtAge;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.MaskedTextBox txtTel;
+        private System.Windows.Forms.MaskedTextBox txtWeight;
     }
 }
